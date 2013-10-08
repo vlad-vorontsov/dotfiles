@@ -1,0 +1,13 @@
+# ~/.gitignore
+#
+# Specifies intentionally untracked files that git(1) should ignore.
+
+
+# OS X generated files.
+.DS_Store
+.Spotlight-V100
+.Trashes
+Icon
+
+# Compiled source files.
+*.pyc

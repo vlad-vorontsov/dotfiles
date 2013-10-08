@@ -1,0 +1,21 @@
+# ~/.inputrc
+#
+# Readline startup file.
+
+
+# Enable case-insensitive command line completion.
+set completion-ignore-case on
+
+# Immediately show all possible command line completions instead of ringing
+# the bell.
+set show-all-if-ambiguous on
+
+# Use the text that has already been typed as the prefix for searching through
+# the command history.
+"\e[A": history-search-backward
+"\e[B": history-search-forward
+
+# UTF-8 support.
+set input-meta on
+set output-meta on
+set convert-meta off

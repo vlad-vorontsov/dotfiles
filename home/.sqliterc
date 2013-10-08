@@ -1,0 +1,7 @@
+-- ~/.sqliterc
+--
+-- sqlite3(1) initialization file.
+
+
+.header on
+.mode column

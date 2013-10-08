@@ -1,0 +1,22 @@
+# ~/.gitconfig
+#
+# git(1) configuration file.
+
+
+[user]
+    name = Joep Loijens
+    email = joep.loijens@gmail.com
+
+[alias]
+    ci = commit
+    co = checkout
+    st = status
+
+[color]
+    ui = auto
+
+[core]
+    excludesfile = ~/.gitignore
+
+[credential]
+    helper = osxkeychain

@@ -1,0 +1,62 @@
+# ~/.bash_aliases
+
+
+# Make aliases work with `sudo`.
+# From the alias section in the bash(1) manpage:
+#     A trailing space in VALUE causes the next word to be checked for alias
+#     substitution when the alias is expanded.
+alias sudo='sudo '
+
+
+# Shortcuts.
+# ----------------------------------------------------------------------------
+
+alias a='alias'
+alias cls='clear'
+alias h='history'
+alias j='jobs'
+
+# Options for `ls`:
+#     -F: use special characters immediately after the name to distinguish
+#         between file types
+#     -G: colorize output
+#     -H: follow symbolic links on the command line
+alias ls='ls -FGH'
+
+# List all files, including dot files, in long format.
+alias la='ls -al'
+
+# List all files in long format.
+alias ll='ls -l'
+
+# List all files in long format sorted by time modified and reversed sort
+# order (most recently modified last).
+alias ltr='ls -ltr'
+
+# Make `tree` print hidden files by default.
+alias tree='tree -a'
+
+# Display week number.
+alias week='date +%V'
+
+
+# Network.
+# ----------------------------------------------------------------------------
+
+# IP addresses.
+alias ip='dig @resolver1.opendns.com myip.opendns.com +short'
+alias localip='ipconfig getifaddr en0'
+
+# mitmproxy, an SSL-capable man-in-the-middle HTTP proxy.
+alias mitmproxy='source ~/local/mitmproxy/bin/activate; mitmproxy --palette solarized_light; deactivate'
+
+
+# OS X specific commands.
+# ----------------------------------------------------------------------------
+
+# Reset the "Open With" menu by rebuilding the LaunchServices database.
+# This will remove duplicate entries from the "Open With" menu.
+alias lsreset='/System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Support/lsregister -kill -r -domain local -domain system -domain user'
+
+# PlistBuddy.
+alias plistbuddy='/usr/libexec/PlistBuddy'
