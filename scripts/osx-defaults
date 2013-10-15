@@ -89,3 +89,10 @@ defaults write com.apple.terminal "Startup Window Settings" -string "Solarized L
 
 # Disable Google Software Update from checking for updates (default: 18000).
 defaults write com.google.Keystone.Agent checkInterval 0
+
+
+# Pixelmator
+# ----------------------------------------------------------------------------
+
+# Don't show the Welcome window on launching the application (default: false).
+defaults write com.pixelmatorteam.pixelmator dontShowWelcomeScreen -boolean true
