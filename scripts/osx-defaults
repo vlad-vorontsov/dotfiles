@@ -40,6 +40,11 @@ sudo defaults write /Library/Preferences/com.apple.loginwindow AdminHostInfo Hos
 # Easy access to the airport command line utility.
 sudo ln -s /System/Library/PrivateFrameworks/Apple80211.framework/Versions/Current/Resources/airport /usr/sbin/airport
 
+# Disable daily summary of power usage statistics on OS X Mavericks 10.9.0.
+if [[ $(uname -r) == "13.0.0" ]]; then
+    sudo launchctl unload -w /System/Library/LaunchDaemons/com.apple.systemstats.daily.plist
+fi
+
 
 # Desktop & Screen Saver
 # ----------------------------------------------------------------------------
