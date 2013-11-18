@@ -95,6 +95,9 @@ defaults write com.apple.terminal "Startup Window Settings" -string "Solarized L
 # Disable Google Software Update from checking for updates (default: 18000).
 defaults write com.google.Keystone.Agent checkInterval 0
 
+# Disable Google Software Update agent.
+launchctl unload -w ~/Library/LaunchAgents/com.google.keystone.agent.plist
+
 
 # Pixelmator
 # ----------------------------------------------------------------------------
