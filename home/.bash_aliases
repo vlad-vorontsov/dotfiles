@@ -54,6 +54,9 @@ alias mitmproxy='source ~/local/mitmproxy/bin/activate; mitmproxy --palette sola
 # OS X specific commands.
 # ----------------------------------------------------------------------------
 
+# Airport command line utility.
+alias airport='/System/Library/PrivateFrameworks/Apple80211.framework/Versions/Current/Resources/airport'
+
 # Reset the "Open With" menu by rebuilding the LaunchServices database.
 # This will remove duplicate entries from the "Open With" menu.
 alias lsreset='/System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Support/lsregister -kill -r -domain local -domain system -domain user'
