@@ -53,6 +53,9 @@ defaults write com.apple.screencapture disable-shadow -boolean true
 # Dock
 # ----------------------------------------------------------------------------
 
+# Minimize windows into their application icon.
+defaults write com.apple.dock minimize-to-application -boolean true
+
 # Set the icon size of Dock items to 48 pixels (default: not set).
 defaults write com.apple.dock tilesize -integer 48
 
