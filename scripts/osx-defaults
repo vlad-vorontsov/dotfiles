@@ -33,6 +33,9 @@ sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.smb.serve
 # Disable open and close window animations (default: not set).
 defaults write NSGlobalDomain NSAutomaticWindowAnimationsEnabled -boolean false
 
+# Set Sidebar icon size to small.
+defaults write NSGlobalDomain NSTableViewDefaultSizeMode -integer 2
+
 # Report computer name, OS X version and IP address when clicking the clock
 # in the Login window (default: not set).
 sudo defaults write /Library/Preferences/com.apple.loginwindow AdminHostInfo HostName
