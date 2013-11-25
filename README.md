@@ -28,10 +28,10 @@ source bootstrap
 ### OS X Defaults
 
 Custom OS X defaults can be applied by running the following command from
-within your local `dotfiles` repository:
+within the `scripts` directory of your local `dotfiles` repository:
 
 ```bash
-scripts/osx-defaults
+./osx-defaults
 ```
 
 ### Vim Plug-Ins
