@@ -5,6 +5,8 @@
 # Incrementally backup the iTunes library with rsync.
 # Assumes that the iTunes library is in its default location and all media
 # files are located in the iTunes media folder.
+#
+# Requires rsync 3.1 because of options used in the `rsync` command.
 
 
 usage() {
@@ -73,9 +75,13 @@ rsync $RSYNC_OPTIONS \
     --delete-excluded \
     --exclude ".DS_Store" \
     --exclude "Cache/" \
-    --extended-attributes \
+    --hard-links \
+    --acls \
+    --hfs-compression \
+    --protect-decmpfs \
     --prune-empty-dirs \
     --stats \
+    --log-file=${HOME}/Library/Logs/${PROG}.log \
     "$SRC" "$DST"
 
 if [[ $? -ne 0 ]]; then
