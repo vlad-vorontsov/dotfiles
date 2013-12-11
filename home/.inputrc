@@ -6,9 +6,19 @@
 # Enable case-insensitive command line completion.
 set completion-ignore-case on
 
+# Do not complete hidden files unless the pattern starts with a dot.
+set match-hidden-files off
+
+# Turn off the internal pager to display a screenful of possible completions
+# at a time.
+set page-completions off
+
 # Immediately show all possible command line completions instead of ringing
 # the bell.
 set show-all-if-ambiguous on
+
+# Suffix each command line completion with a character denoting its type.
+set visible-stats on
 
 # Use the text that has already been typed as the prefix for searching through
 # the command history.
