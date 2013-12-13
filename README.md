@@ -9,17 +9,20 @@ The installation requires [Git](http://git-scm.com) which comes standard with
 [Command Line Developer Tools](https://developer.apple.com/downloads/index.action?=command%20line%20tools).
 
 Installing these dotfiles will overwrite already existing files in your home
-directory. The `bootstrap` script will prompt you about this before installing
-the dotfiles.
+directory. The `bootstrap` script will prompt you before installing the
+dotfiles. Run the following commands to install:
 
 ```bash
-git clone https://github.com/joeploijens/dotfiles.git && cd dotfiles && source bootstrap
+git clone https://github.com/joeploijens/dotfiles.git ~/.dotfiles
+cd ~/.dotfiles
+source bootstrap
 ```
 
 To update, `cd` into your local `dotfiles` repository and run the `bootstrap` script
 again:
 
 ```bash
+cd ~/.dotfiles
 source bootstrap
 ```
 
@@ -27,10 +30,11 @@ source bootstrap
 
 ### OS X Defaults
 
-Custom OS X defaults can be applied by running the following command from
-within the `scripts` directory of your local `dotfiles` repository:
+On a new Mac you may want to set some sane OS X defaults by running the
+`osx-defaults` script. You can find this script in `scripts/`.
 
 ```bash
+cd ~/.dotfiles/scripts
 ./osx-defaults
 ```
 
