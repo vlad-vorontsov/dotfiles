@@ -18,8 +18,8 @@ cd ~/.dotfiles
 source bootstrap
 ```
 
-To update, `cd` into your local `dotfiles` repository and run the `bootstrap` script
-again:
+To update, `cd` into your local `dotfiles` repository and run the `bootstrap`
+script again:
 
 ```bash
 cd ~/.dotfiles
@@ -27,6 +27,17 @@ source bootstrap
 ```
 
 ## Features
+
+### Homebrew
+
+I recommend installing [Homebrew](http://brew.sh/) on a Mac.
+
+When setting up a new Mac, install some useful Homebrew formulae (after
+installing Homebrew first, of course):
+
+```bash
+brew bundle ~/.brewfile
+```
 
 ### OS X Defaults
 

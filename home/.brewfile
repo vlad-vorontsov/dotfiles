@@ -1,0 +1,24 @@
+# ~/.brewfile
+#
+# Use this file to install software via Homebrew when setting up a new Mac.
+
+
+# Check for potential problems.
+doctor
+
+# Update Homebrew itself.
+update
+
+# Add formulae for software already provided by OS X.
+tap homebrew/dupes
+
+# Install a more up to date version of rsync.
+install homebrew/dupes/rsync
+
+# Install software.
+install ack
+install jpeg --universal
+install ssh-copy-id
+install tree
+install unrar
+install wget
