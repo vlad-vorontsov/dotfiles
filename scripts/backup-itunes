@@ -18,8 +18,8 @@ PROG=${0##*/}
 RSYNC_OPTIONS=""
 
 # Make sure to set the DST variable to the destination backup directory.
-DST="/Volumes/Vault/Backup/${HOSTNAME}/"
-SRC="/Users/${LOGNAME}/Music/iTunes"
+DST="/Volumes/Vault/Backup/${HOSTNAME}${HOME}/Music/"
+SRC="${HOME}/Music/iTunes"
 
 # Parse command line options.
 OPTIND=1
