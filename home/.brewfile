@@ -9,9 +9,6 @@ doctor
 # Update Homebrew itself.
 update
 
-# Add formulae for software already provided by OS X.
-tap homebrew/dupes
-
 # Install a more up to date version of rsync.
 install homebrew/dupes/rsync
 
