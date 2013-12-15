@@ -84,7 +84,8 @@ rsync $RSYNC_OPTIONS \
     --log-file=${HOME}/Library/Logs/${PROG}.log \
     "$SRC" "$DST"
 
-if [[ $? -ne 0 ]]; then
-    echo "${PROG}: rsync: Error $?"
-    exit 1
+EXITCODE=$?
+if [[ $EXITCODE -ne 0 ]]; then
+    echo "${PROG}: rsync: Error $EXITCODE"
+    exit $EXITCODE
 fi
