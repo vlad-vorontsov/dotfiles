@@ -83,7 +83,7 @@ if [[ -d $HOME/local/rbenv ]]; then
 fi
 
 # Homebrew package manager.
-if [ -n $(command -v brew >/dev/null 2>&1) ]; then
+if [[ -n $(command -v brew) ]]; then
     export HOMEBREW_TEMP=$TMPDIR
     source $(brew --repo)/Library/Contributions/brew_bash_completion.sh
 fi
