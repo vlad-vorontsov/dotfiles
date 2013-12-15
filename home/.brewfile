@@ -9,6 +9,9 @@ doctor
 # Update Homebrew itself.
 update
 
+# Install Bash 4
+install bash
+
 # Install a more up to date version of rsync.
 install homebrew/dupes/rsync
 
