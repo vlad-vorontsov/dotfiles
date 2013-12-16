@@ -39,12 +39,12 @@ while getopts :nvh OPT; do
             exit 0
             ;;
         \?)
-            echo "$PROG: illegal option -- $OPTARG"
+            echo "${PROG}: illegal option -- $OPTARG"
             usage
             exit 1
             ;;
         :)
-            echo "$PROG: -$OPTARG requires an argument"
+            echo "${PROG}: -${OPTARG} requires an argument"
             usage
             exit 1
             ;;
@@ -53,13 +53,13 @@ done
 shift $((OPTIND-1))
 
 if [[ $# -gt 0 ]]; then
-    echo "$PROG: illegal argument -- $1"
+    echo "${PROG}: illegal argument -- $1"
     usage
     exit 1
 fi
 
 # Check rsync version.
-[[ $(rsync --version) =~ version\ 3\.1 ]] || { echo "$PROG: rsync 3.1.0 or later is required"; exit 1; }
+[[ $(rsync --version) =~ version\ 3\.1 ]] || { echo "${PROG}: rsync 3.1.0 or later is required"; exit 1; }
 
 # Check if required directories exist.
 [[ -d "$SRC" ]] || { echo "${PROG}: ${SRC}: No such directory"; exit 1; }
