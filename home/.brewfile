@@ -15,6 +15,10 @@ install bash
 # Install a more up to date version of rsync.
 install homebrew/dupes/rsync
 
+# Ruby version management.
+install --HEAD rbenv
+install ruby-build --without-autoconf --without-pkg-config
+
 # Install some useful software.
 install ack
 install jhead
