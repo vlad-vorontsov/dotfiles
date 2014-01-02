@@ -36,8 +36,8 @@ alias ltr='ls -ltr'
 # Simple password generator.
 alias pwgen='LC_ALL=C tr -dc "[[:alnum:]][[:punct:]]" < /dev/urandom | fold -w 12 | head -n 10'
 
-# Make `tree` print hidden files by default.
-alias tree='tree -a'
+# Make `tree` print hidden files and print non-printable characters as is.
+alias tree='tree -aN'
 
 # Display week number.
 alias week='date +%V'
