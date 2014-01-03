@@ -62,7 +62,7 @@ if [[ -n $(command -v brew) ]]; then
 
     # Ruby version management: rbenv and ruby-build.
     if [[ -n $(command -v rbenv) ]]; then
-        export RBENV_ROOT=$(brew --repo)/var/rbenv
+        export RBENV_ROOT=$(brew --repo)/lib/rbenv
         export RUBY_CONFIGURE_OPTS="--disable-install-doc"
         eval "$(rbenv init -)"
     fi
