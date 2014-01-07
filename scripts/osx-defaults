@@ -94,6 +94,9 @@ defaults write com.apple.Safari DebugSnapshotsUpdatePolicy -integer 2
 # Set home page to `about:blank`.
 defaults write com.apple.Safari HomePage -string "about:blank"
 
+# Do not automatically update extensions.
+defaults write com.apple.Safari InstallExtensionUpdatesAutomatically -boolean false
+
 # Show status bar.
 defaults write com.apple.Safari ShowStatusBar -boolean true
 
