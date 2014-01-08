@@ -15,6 +15,9 @@ install bash
 # Install a more up to date version of rsync.
 install homebrew/dupes/rsync
 
+# The OpenSSL provided by OS X is too old for some software.
+install openssl
+
 # Ruby version management.
 install --HEAD rbenv
 install ruby-build --without-autoconf --without-pkg-config
