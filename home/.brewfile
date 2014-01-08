@@ -22,7 +22,7 @@ install ruby-build --without-autoconf --without-pkg-config
 # Install some useful software.
 install ack
 install jhead
-install jpeg --universal
+install jpeg
 install ssh-copy-id
 install tree
 install unrar
