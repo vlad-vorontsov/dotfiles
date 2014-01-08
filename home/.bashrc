@@ -49,11 +49,16 @@ export LESS="-iFRX"
 # Make `less` the default pager.
 export PAGER=less
 
-# Set prompt.
-export PS1="\u@\h:\w$ "
-
 # Make `tree` use the same (default) colors as OS X `ls`.
 export TREE_COLORS=":no=00:fi=00:di=00;34:ln=00;35:pi=40;33:so=00;32:bd=46;34:cd=43;34:or=40;31;01:ex=00;31:su=00;41:sg=00;46:tw=00;42:ow=00;43:"
+
+# Set prompt.
+if [ -f $(xcode-select -p)/usr/share/git-core/git-prompt.sh ]; then
+    source $(xcode-select -p)/usr/share/git-core/git-prompt.sh
+    export PS1="\u@\h:\w\$(__git_ps1 \" (%s)\")\$ "
+else
+    export PS1="\u@\h:\w$ "
+fi
 
 if [ -f $(xcode-select -p)/usr/share/git-core/git-completion.bash ]; then
     source $(xcode-select -p)/usr/share/git-core/git-completion.bash
