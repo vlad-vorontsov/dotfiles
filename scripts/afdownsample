@@ -16,18 +16,19 @@
 
 
 usage() {
-    echo "usage: $PROG [-d directory]"
+    echo "usage: $PROG [-d directory] [-n]"
 }
 
 
 COUNT=0
 CWD="$(pwd)"
 DIR="."
+DITHER=""
 PROG=${0##*/}
 
 # Parse command line options.
 OPTIND=1
-while getopts :d:h OPT; do
+while getopts :d:hn OPT; do
     case $OPT in
         d)
             DIR=${OPTARG%/}
@@ -36,7 +37,11 @@ while getopts :d:h OPT; do
             usage
             echo
             echo "  -d  Directory with high resolution audio files"
+            echo "  -n  Apply noise-shaping dither"
             exit 0
+            ;;
+        n)
+            DITHER="dither -s"
             ;;
         \?)
             echo "${PROG}: illegal option -- $OPTARG"
@@ -67,18 +72,18 @@ command -v sox >/dev/null 2>&1 || { echo "${PROG}: sox: command not found"; exit
 # Trap interrupt and remove incomplete downsampled file.
 trap 'rm -rf "OUT/${file##*/}"; exit 3' SIGINT
 
+# Only downsample high resolution audio files.
 while IFS= read -r -d '' file; do
-    # Only downsample high resolution audio files.
     if [[ $(sox --i -b "$file") -eq 24 ]] && [[ $(sox --i -r "$file") -ge 44100 ]]; then
         if [[ $COUNT -eq 0 ]]; then
             mkdir -p OUT || exit 1
         fi
 
-        # Very high quality linear phase (-v -s) with automatic TPDF dither.
-        sox -S "$file" -b 16 --comment "" OUT/"${file##*/}" rate -v -s 44100 || exit 2
+        # Very high quality linear phase (-v -s).
+        # SoX automatically applies TPDF dither when required.
+        # Use the option -n to apply noise-shaping dither instead.
 
-        # Apply noise-shaping dither.
-        #sox -S "$file" -b 16 --comment "" OUT/"${file##*/}" rate -v -s 44100 dither -s || exit 2
+        sox -S "$file" -b 16 --comment "" OUT/"${file##*/}" rate -v -s 44100 $DITHER || exit 2
 
         # Use this if any clipping has occured.
         #sox -S "$file" -b 16 --comment "" OUT/"${file##*/}" gain -1 rate -v -s 44100 || exit 2
