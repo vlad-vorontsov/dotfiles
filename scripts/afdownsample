@@ -64,8 +64,8 @@ command -v sox >/dev/null 2>&1 || { echo "${PROG}: sox: command not found"; exit
 # Check if directory exists.
 [[ -d "$DIR" ]] || { echo "${PROG}: ${DIR}: No such directory"; usage; exit 1; }
 
-# Trap interrupt.
-trap 'echo aborting...; exit 3' SIGINT
+# Trap interrupt and remove incomplete downsampled file.
+trap 'rm -rf "OUT/${file##*/}"; exit 3' SIGINT
 
 while IFS= read -r -d '' file; do
     # Only downsample high resolution audio files.
