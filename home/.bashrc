@@ -77,9 +77,6 @@ if [[ -n $(command -v brew) ]]; then
     fi
 fi
 
-# Append PostgreSQL to PATH.
-[[ -d /usr/local/pgsql/bin ]] && export PATH=$PATH:/usr/local/pgsql/bin
-
 # Append Hadoop to PATH.
 [[ -d /usr/local/hadoop/bin ]] && export PATH=$PATH:/usr/local/hadoop/bin
 
