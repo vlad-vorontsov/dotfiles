@@ -83,9 +83,6 @@ fi
 # Append Hadoop to PATH.
 [[ -d /usr/local/hadoop/bin ]] && export PATH=$PATH:/usr/local/hadoop/bin
 
-# Append MySQL to PATH.
-[[ -d /usr/local/mysql/bin ]] && export PATH=$PATH:/usr/local/mysql/bin
-
 # Oracle Instant Client.
 if [[ -d /usr/local/oracle/bin ]]; then
     export NLS_LANG=AMERICAN_AMERICA.UTF8
