@@ -9,7 +9,7 @@ doctor
 # Update Homebrew itself.
 update
 
-# Install Bash 4
+# Install Bash 4.
 install bash
 
 # Install a more up to date version of rsync.
@@ -20,7 +20,7 @@ install openssl
 
 # Ruby version management.
 install --HEAD rbenv
-install ruby-build --without-autoconf --without-pkg-config
+install ruby-build
 
 # Install some useful software.
 install ack
@@ -30,3 +30,8 @@ install ssh-copy-id
 install tree
 install unrar
 install wget
+
+# Databases.
+install mysql --enable-local-infile --with-archive-storage-engine --with-blackhole-storage-engine --with-embedded
+install postgresql --enable-dtrace --ossp-uuid --python
+install mongodb
