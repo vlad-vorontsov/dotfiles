@@ -43,7 +43,7 @@ alias tree='tree -aN'
 alias week='date +%V'
 
 # MongoDB.
-alias mongo.start='ulimit -Sn 1024; mongod'
+alias mongo.start='ulimit -Sn 1024; mongod --config /usr/local/etc/mongod.conf'
 alias mongo.stop='kill $(cat /usr/local/var/run/mongod.pid) && rm /usr/local/var/run/mongod.pid'
 
 # PostgreSQL.
