@@ -42,6 +42,15 @@ alias tree='tree -aN'
 # Display week number.
 alias week='date +%V'
 
+# MongoDB.
+alias mongo.start='ulimit -Sn 1024; mongod'
+alias mongo.stop='kill $(cat /usr/local/var/run/mongod.pid) && rm /usr/local/var/run/mongod.pid'
+
+# PostgreSQL.
+alias pg.start='pg_ctl start -D /usr/local/var/postgres -l /usr/local/var/log/postgres/postgres.log'
+alias pg.stop='pg_ctl stop -D /usr/local/var/postgres'
+alias pg.status='pg_ctl status -D /usr/local/var/postgres'
+
 
 # Network.
 # ----------------------------------------------------------------------------
