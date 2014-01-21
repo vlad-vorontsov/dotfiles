@@ -16,7 +16,7 @@
 
 
 usage() {
-    echo "usage: $PROG [-d directory] [-n]"
+    echo "usage: $PROG [-d directory] [-g] [-n]"
 }
 
 
@@ -24,19 +24,24 @@ COUNT=0
 CWD="$(pwd)"
 DIR="."
 DITHER=""
+GAIN=""
 PROG=${0##*/}
 
 # Parse command line options.
 OPTIND=1
-while getopts :d:hn OPT; do
+while getopts :d:ghn OPT; do
     case $OPT in
         d)
             DIR=${OPTARG%/}
+            ;;
+        g)
+            GAIN="gain -1"
             ;;
         h)
             usage
             echo
             echo "  -d  Directory with high resolution audio files"
+            echo "  -g  Add some attenuation when clipping occurs during conversion"
             echo "  -n  Apply noise-shaping dither"
             exit 0
             ;;
@@ -82,11 +87,8 @@ while IFS= read -r -d '' file; do
         # Very high quality linear phase (-v -s).
         # SoX automatically applies TPDF dither when required.
         # Use the option -n to apply noise-shaping dither instead.
-
-        sox -S "$file" -b 16 --comment "" OUT/"${file##*/}" rate -v -s 44100 $DITHER || exit 2
-
-        # Use this if any clipping has occured.
-        #sox -S "$file" -b 16 --comment "" OUT/"${file##*/}" gain -1 rate -v -s 44100 || exit 2
+        # Use the option -g to add some attenuation when clipping occurs.
+        sox -S "$file" -b 16 --comment "" OUT/"${file##*/}" $GAIN rate -v -s 44100 $DITHER || exit 2
 
         COUNT=$((COUNT+1))
     fi
