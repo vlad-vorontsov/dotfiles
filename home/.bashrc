@@ -83,6 +83,8 @@ if [[ -n $(command -v brew) ]]; then
         export RUBY_CONFIGURE_OPTS="--disable-install-doc"
         eval "$(rbenv init -)"
     fi
+
+    export PYTHONPATH=$(brew --repo)/lib/python2.7/site-packages
 fi
 
 # Oracle Instant Client.

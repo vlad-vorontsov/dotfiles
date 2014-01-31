@@ -26,6 +26,7 @@ install ruby-build
 install ack
 install jhead
 install jpeg
+install mitmproxy
 install ssh-copy-id
 install tree
 install unrar

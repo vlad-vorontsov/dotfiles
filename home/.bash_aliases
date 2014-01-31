@@ -60,7 +60,7 @@ alias ip='dig @resolver1.opendns.com myip.opendns.com +short'
 alias localip='ipconfig getifaddr en0'
 
 # mitmproxy, an SSL-capable man-in-the-middle HTTP proxy.
-alias mitmproxy='source ~/local/mitmproxy/bin/activate; mitmproxy --palette solarized_light; deactivate'
+alias mitmproxy='mitmproxy --palette solarized_light'
 
 
 # OS X specific commands.
