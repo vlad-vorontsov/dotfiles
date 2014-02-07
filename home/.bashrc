@@ -85,14 +85,13 @@ if [[ -n $(command -v brew) ]]; then
     fi
 
     export PYTHONPATH=$(brew --prefix)/lib/python2.7/site-packages
-fi
 
-# Oracle Instant Client.
-if [[ -d /usr/local/oracle/bin ]]; then
-    export NLS_LANG=AMERICAN_AMERICA.UTF8
-    export PATH=$PATH:/usr/local/oracle/bin
-    export SQLPATH=$HOME/local/sqlplus
-    export TNS_ADMIN=/usr/local/oracle/admin/network
+    # Oracle SQL*Plus.
+    if [[ -n $(command -v sqlplus) ]]; then
+        export NLS_LANG=AMERICAN_AMERICA.UTF8
+        export SQLPATH=$HOME/local/sqlplus
+        export TNS_ADMIN=/usr/local/etc
+    fi
 fi
 
 # Append ~/local/bin to PATH.
