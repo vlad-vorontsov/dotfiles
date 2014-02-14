@@ -3,36 +3,43 @@
 # Use this file to install software via Homebrew when setting up a new Mac.
 
 
-# Check for potential problems.
+# Check for potential problems
 doctor
 
-# Update Homebrew itself.
+# Update Homebrew itself
 update
 
-# Install Bash 4.
+# More up to date versions of software provided by OS X
 install bash
-
-# Install a more up to date version of rsync.
+install openssl
 install homebrew/dupes/rsync
 
-# The OpenSSL provided by OS X is too old for some software.
-install openssl
+# Better to leave OS X system Python alone
+install python --with-brewed-openssl
 
-# Ruby version management.
-install --HEAD rbenv
-install ruby-build
-
-# Install some useful software.
+# Common useful software
 install ack
-install jhead
 install jpeg
-install mitmproxy
+install libpng
 install ssh-copy-id
 install tree
 install unrar
 install wget
+install xz
 
-# Databases.
+# Ruby version management
+install --HEAD rbenv
+install ruby-build
+
+# Databases
 install mysql --enable-local-infile --with-archive-storage-engine --with-blackhole-storage-engine --with-embedded
-install postgresql --enable-dtrace --ossp-uuid --python
+install postgresql --enable-dtrace
 install mongodb
+install redis
+
+# Extra fun stuff
+install spark
+
+# Remove outdated versions from the cellar
+cleanup
+
