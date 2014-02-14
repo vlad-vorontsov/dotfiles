@@ -79,13 +79,13 @@ set t_ti= t_te=
 set nowrap
 
 " Number of spaces to use for autoindenting.
-set shiftwidth=4
+set shiftwidth=2
 
 " When using <backspace>, pretend like a <tab> is removed, even if spaces.
-set softtabstop=4
+set softtabstop=2
 
-" Use four spaces for a <tab>.
-set tabstop=4
+" Use two spaces for a <tab>.
+set tabstop=2
 
 " Expand a <tab> with spaces.
 set expandtab
