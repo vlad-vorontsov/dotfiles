@@ -19,6 +19,7 @@ install python --with-brewed-openssl
 
 # Common useful software
 install ack
+install jhead
 install jpeg
 install libpng
 install ssh-copy-id
