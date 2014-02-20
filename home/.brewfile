@@ -22,11 +22,15 @@ install ack
 install jhead
 install jpeg
 install libpng
+install libtiff
 install ssh-copy-id
 install tree
 install unrar
 install wget
 install xz
+
+# Image processing
+install graphicsmagick --with-little-cms2 --without-magick-plus-plus
 
 # Ruby version management
 install --HEAD rbenv
