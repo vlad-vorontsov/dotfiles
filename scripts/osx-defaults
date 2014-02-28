@@ -40,8 +40,8 @@ defaults write NSGlobalDomain NSTableViewDefaultSizeMode -integer 2
 # in the Login window (default: not set).
 sudo defaults write /Library/Preferences/com.apple.loginwindow AdminHostInfo HostName
 
-# Disable daily summary of power usage statistics on OS X Mavericks 10.9.0.
-if [[ $(uname -r) == "13.0.0" ]]; then
+# Disable daily summary of power usage statistics on OS X Mavericks (10.9).
+if [[ $(sw_vers -productVersion) =~ ^10\.9.*) ]]; then
     sudo launchctl unload -w /System/Library/LaunchDaemons/com.apple.systemstats.daily.plist
 fi
 
