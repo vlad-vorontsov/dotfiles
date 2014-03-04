@@ -37,7 +37,7 @@ install --HEAD rbenv
 install ruby-build
 
 # Databases
-install mysql --enable-local-infile --with-archive-storage-engine --with-blackhole-storage-engine --with-embedded
+install mysql --enable-local-infile --with-archive-storage-engine --with-blackhole-storage-engine
 install postgresql --enable-dtrace
 install mongodb
 install redis
