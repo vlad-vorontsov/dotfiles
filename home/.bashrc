@@ -84,8 +84,6 @@ if [[ -n $(command -v brew) ]]; then
         eval "$(rbenv init -)"
     fi
 
-    export PYTHONPATH=$(brew --prefix)/lib/python2.7/site-packages
-
     # Oracle SQL*Plus.
     if [[ -n $(command -v sqlplus) ]]; then
         export NLS_LANG=AMERICAN_AMERICA.UTF8
