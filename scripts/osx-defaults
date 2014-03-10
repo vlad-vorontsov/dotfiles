@@ -56,6 +56,9 @@ defaults write com.apple.screencapture disable-shadow -boolean true
 # Dock
 # ----------------------------------------------------------------------------
 
+# Minimize windows using the "Scale" effect.
+defaults write com.apple.dock mineffect -string "scale"
+
 # Minimize windows into their application icon.
 defaults write com.apple.dock minimize-to-application -boolean true
 
