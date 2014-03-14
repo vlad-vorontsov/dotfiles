@@ -1,0 +1,23 @@
+# ~/.atom/config.cson
+#
+# Atom configuration settings
+
+
+'release-notes':
+  'viewedVersion': '0.72.0'
+'welcome':
+  'showOnStartup': false
+'editor':
+  'fontSize': 11
+  'fontFamily': 'menlo'
+'core':
+  'themes': [
+    'atom-light-ui'
+    'atom-light-syntax'
+  ]
+  'ignoredNames': [
+    '.git'
+    '.svn'
+    '.DS_Store'
+  ]
+
