@@ -51,6 +51,10 @@ alias pg.start='pg_ctl start -D /usr/local/var/postgres -l /usr/local/var/log/po
 alias pg.stop='pg_ctl stop -D /usr/local/var/postgres'
 alias pg.status='pg_ctl status -D /usr/local/var/postgres'
 
+# Redis
+alias redis.start='redis-server /usr/local/etc/redis.conf'
+alias redis.stop='kill $(cat /usr/local/var/run/redis.pid)'
+
 
 # Network.
 # ----------------------------------------------------------------------------
