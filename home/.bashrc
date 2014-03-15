@@ -37,6 +37,7 @@ export HISTIGNORE="clear:cls:la:ll:ls:ltr:cd:pwd:exit:date"
 
 # Prefer US English locale and UTF-8 encoding.
 export LANG=en_US.UTF-8
+export LC_ALL=en_US.UTF-8
 
 # Options for `less`:
 #     -i: ignore case when searching
