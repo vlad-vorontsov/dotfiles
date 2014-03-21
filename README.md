@@ -8,6 +8,9 @@ The installation requires [Git](http://git-scm.com) which comes standard with
 [Xcode](https://developer.apple.com/xcode/) or the
 [Command Line Developer Tools](https://developer.apple.com/downloads/index.action?=command%20line%20tools).
 
+Starting with OS X Mavericks, the Command Line Developer Tools can be easily
+installed using `xcode-select --install`.
+
 Installing these dotfiles will overwrite already existing files in your home
 directory. The `bootstrap` script will prompt you before installing the
 dotfiles. Run the following commands to install:
