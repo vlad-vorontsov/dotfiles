@@ -99,30 +99,8 @@ fi
 # Append ~/local/bin to PATH.
 [[ -d $HOME/local/bin ]] && export PATH=$PATH:$HOME/local/bin
 
+# Source Bash files
+[[ -r $HOME/.bash_aliases ]] && source $HOME/.bash_aliases
+[[ -r $HOME/.bash_functions ]] && source $HOME/.bash_functions
+[[ -r $HOME/.bashrc.local ]] && source $HOME/.bashrc.local
 
-# Functions
-# ----------------------------------------------------------------------------
-
-# Recursively delete files that match a certain pattern from the current
-# directory (by default all .DS_Store files are deleted).
-deletefiles() {
-    local q="${1:-*.DS_Store}"
-
-    find . -type f -name "$q" -ls -delete
-} 
-
-# Remove downloaded file(s) from the OS X quarantine.
-unquarantine() {
-    local attribute
-
-    for attribute in com.apple.metadata:kMDItemDownloadedDate com.apple.metadata:kMDItemWhereFroms com.apple.quarantine; do
-        xattr -rd "$attribute" "$@"
-    done
-}
-
-
-# Bash aliases.
-[[ -r ~/.bash_aliases ]] && source ~/.bash_aliases
-
-# Run a local bashrc file if it exists.
-[[ -r ~/.bashrc.local ]] && source ~/.bashrc.local
