@@ -12,8 +12,8 @@ PROG=${0##*/}
 
 # OS X only...
 if [[ $(uname) != "Darwin" ]]; then
-    echo "$PROG script is for OS X only!"
-    exit 1
+  echo "$PROG script is for OS X only!"
+  exit 1
 fi
 
 # Ask for the administrator password upfront.
@@ -42,7 +42,7 @@ sudo defaults write /Library/Preferences/com.apple.loginwindow AdminHostInfo Hos
 
 # Disable daily summary of power usage statistics on OS X Mavericks (10.9).
 if [[ $(sw_vers -productVersion) =~ ^10\.9.*) ]]; then
-    sudo launchctl unload -w /System/Library/LaunchDaemons/com.apple.systemstats.daily.plist
+  sudo launchctl unload -w /System/Library/LaunchDaemons/com.apple.systemstats.daily.plist
 fi
 
 
@@ -134,3 +134,4 @@ launchctl unload -w ~/Library/LaunchAgents/com.google.keystone.agent.plist
 
 # Don't show the Welcome window on launching the application (default: false).
 defaults write com.pixelmatorteam.pixelmator dontShowWelcomeScreen -boolean true
+
