@@ -97,7 +97,8 @@ fi
 [[ -d $HOME/local/bin ]] && export PATH=$PATH:$HOME/local/bin
 
 # Source Bash files
-[[ -r $HOME/.bash_aliases ]] && source $HOME/.bash_aliases
-[[ -r $HOME/.bash_functions ]] && source $HOME/.bash_functions
-[[ -r $HOME/.bashrc.local ]] && source $HOME/.bashrc.local
+for file in $HOME/.{bash_aliases,bash_functions,bashrc.local}; do
+  [[ -r $file ]] && [[ -f $file ]] && source $file
+done
+unset file
 
