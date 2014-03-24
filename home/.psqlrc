@@ -10,3 +10,4 @@
 \set PROMPT1 '(%m)%n@%/%# '
 \set PROMPT2 '> '
 \set PROMPT3 '> '
+

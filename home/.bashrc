@@ -40,11 +40,11 @@ export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 
 # Options for `less`:
-#     -i: ignore case when searching
-#     -F: automatically quit `less` when the file can be displayed on the
-#         first screen
-#     -R: display ANSI colors
-#     -X: don't clear the screen when quitting
+#   -i: ignore case when searching
+#   -F: automatically quit `less` when the file can be displayed on the first
+#       screen
+#   -R: display ANSI colors
+#   -X: don't clear the screen when quitting
 export LESS="-iFRX"
 
 # Make `less` the default pager.
@@ -58,39 +58,39 @@ export PS1="\u@\h:\w$ "
 
 # Git prompt.
 if [ -f $(xcode-select -p)/usr/share/git-core/git-prompt.sh ]; then
-    source $(xcode-select -p)/usr/share/git-core/git-prompt.sh
-    GIT_PS1_SHOWDIRTYSTATE=1
-    GIT_PS1_SHOWSTASHSTATE=1
-    GIT_PS1_SHOWCOLORHINTS=1
-    GIT_PS1_SHOWUNTRACKEDFILES=1
-    GIT_PS1_SHOWUPSTREAM=auto
-    GIT_PS1_DESCRIBE_STYLE=branch
-    PROMPT_COMMAND="$PROMPT_COMMAND __git_ps1 '${VIRTUAL_ENV:+(${VIRTUAL_ENV##*/}) }\u@\h:\w' '\\\$ ' ' (%s)'"
+  source $(xcode-select -p)/usr/share/git-core/git-prompt.sh
+  GIT_PS1_SHOWDIRTYSTATE=1
+  GIT_PS1_SHOWSTASHSTATE=1
+  GIT_PS1_SHOWCOLORHINTS=1
+  GIT_PS1_SHOWUNTRACKEDFILES=1
+  GIT_PS1_SHOWUPSTREAM=auto
+  GIT_PS1_DESCRIBE_STYLE=branch
+  PROMPT_COMMAND="$PROMPT_COMMAND __git_ps1 '${VIRTUAL_ENV:+(${VIRTUAL_ENV##*/}) }\u@\h:\w' '\\\$ ' ' (%s)'"
 fi
 
 # Git bash completion.
 if [ -f $(xcode-select -p)/usr/share/git-core/git-completion.bash ]; then
-    source $(xcode-select -p)/usr/share/git-core/git-completion.bash
+  source $(xcode-select -p)/usr/share/git-core/git-completion.bash
 fi
 
 # Homebrew package manager.
 if [[ -n $(command -v brew) ]]; then
-    export HOMEBREW_TEMP=$TMPDIR
-    source $(brew --repo)/Library/Contributions/brew_bash_completion.sh
+  export HOMEBREW_TEMP=$TMPDIR
+  source $(brew --repo)/Library/Contributions/brew_bash_completion.sh
 
-    # Ruby version management: rbenv and ruby-build.
-    if [[ -n $(command -v rbenv) ]]; then
-        export RBENV_ROOT=$(brew --prefix)/var/rbenv
-        export RUBY_CONFIGURE_OPTS="--disable-install-doc"
-        eval "$(rbenv init -)"
-    fi
+  # Ruby version management: rbenv and ruby-build.
+  if [[ -n $(command -v rbenv) ]]; then
+    export RBENV_ROOT=$(brew --prefix)/var/rbenv
+    export RUBY_CONFIGURE_OPTS="--disable-install-doc"
+    eval "$(rbenv init -)"
+  fi
 
-    # Oracle SQL*Plus.
-    if [[ -n $(command -v sqlplus) ]]; then
-        export NLS_LANG=AMERICAN_AMERICA.UTF8
-        export SQLPATH=$HOME/local/sqlplus
-        export TNS_ADMIN=/usr/local/etc
-    fi
+  # Oracle SQL*Plus.
+  if [[ -n $(command -v sqlplus) ]]; then
+    export NLS_LANG=AMERICAN_AMERICA.UTF8
+    export SQLPATH=$HOME/local/sqlplus
+    export TNS_ADMIN=/usr/local/etc
+  fi
 fi
 
 # Append ~/local/bin to PATH.

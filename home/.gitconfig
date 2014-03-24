@@ -4,19 +4,20 @@
 
 
 [user]
-    name = Joep Loijens
-    email = joep.loijens@gmail.com
+  name = Joep Loijens
+  email = joep.loijens@gmail.com
 
 [alias]
-    ci = commit
-    co = checkout
-    st = status
+  ci = commit
+  co = checkout
+  st = status
 
 [color]
-    ui = auto
+  ui = auto
 
 [core]
-    excludesfile = ~/.gitignore
+  excludesfile = ~/.gitignore
 
 [credential]
-    helper = osxkeychain
+  helper = osxkeychain
+

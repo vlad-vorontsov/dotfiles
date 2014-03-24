@@ -15,55 +15,55 @@ set backupdir=~/.vim
 set directory=~/.vim
 
 if has("autocmd")
-    " Enable file type detection.
-    " Also load indent files to automatically do language-dependent indenting.
-    filetype on
-    filetype indent on
-    filetype plugin on
+  " Enable file type detection.
+  " Also load indent files to automatically do language-dependent indenting.
+  filetype on
+  filetype indent on
+  filetype plugin on
 
-    " For all text files set 'textwidth' to 78 characters.
-    autocmd FileType text setlocal textwidth=78
+  " For all text files set 'textwidth' to 78 characters.
+  autocmd FileType text setlocal textwidth=78
 
-    " When editing a file, always jump to the last known cursor position.
-    autocmd BufReadPost *
-         \ if line("'\"") > 1 && line("'\"") <= line("$") |
-         \     exe "normal! g`\"" |
-         \ endif
+  " When editing a file, always jump to the last known cursor position.
+  autocmd BufReadPost *
+    \ if line("'\"") > 1 && line("'\"") <= line("$") |
+    \     exe "normal! g`\"" |
+    \ endif
 endif
 
 if has("cmdline_info")
-    " Show line number, column number and relative position within a file.
-    set ruler
+  " Show line number, column number and relative position within a file.
+  set ruler
 
-    " Show whether in insert or replace mode.
-    set showmode
+  " Show whether in insert or replace mode.
+  set showmode
 endif
 
 if has("syntax")
-    " Enable syntax hightlighting.
-    syntax on
+  " Enable syntax hightlighting.
+  syntax on
 
-    " Set light background.
-    set background=light
+  " Set light background.
+  set background=light
 
-    " Set Solarized colorscheme.
-    let g:solarized_termtrans=1
-    colorscheme solarized
+  " Set Solarized colorscheme.
+  let g:solarized_termtrans=1
+  colorscheme solarized
 endif
 
 if has("extra_search")
-    " Highlight the last used search pattern.
-    set hlsearch
+  " Highlight the last used search pattern.
+  set hlsearch
 
-    " Highlight incremental searching.
-    set incsearch
+  " Highlight incremental searching.
+  set incsearch
 
-    " Ignore case in search patterns.
-    set ignorecase
+  " Ignore case in search patterns.
+  set ignorecase
 
-    " Ignore case if search pattern is all lowercase, case-sensitive
-    " otherwise.
-    set smartcase
+  " Ignore case if search pattern is all lowercase, case-sensitive
+  " otherwise.
+  set smartcase
 endif
 
 " Use UTF-8 encoding without BOM.
@@ -101,3 +101,4 @@ set expandtab
 
 " Strings to use for special characters in list mode.
 set listchars=tab:‣\ ,trail:·,eol:¶,nbsp:_
+

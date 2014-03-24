@@ -3,8 +3,8 @@
 
 # Make aliases work with `sudo`.
 # From the alias section in the bash(1) manpage:
-#     A trailing space in VALUE causes the next word to be checked for alias
-#     substitution when the alias is expanded.
+#   A trailing space in VALUE causes the next word to be checked for alias
+#   substitution when the alias is expanded.
 alias sudo='sudo '
 
 
@@ -17,10 +17,10 @@ alias h='history'
 alias j='jobs'
 
 # Options for `ls`:
-#     -F: use special characters immediately after the name to distinguish
-#         between file types
-#     -G: colorize output
-#     -H: follow symbolic links on the command line
+#   -F: use special characters immediately after the name to distinguish
+#       between file types
+#   -G: colorize output
+#   -H: follow symbolic links on the command line
 alias ls='ls -FGH'
 
 # List all files, including dot files, in long format.
@@ -79,3 +79,4 @@ alias lsreset='/System/Library/Frameworks/CoreServices.framework/Frameworks/Laun
 
 # PlistBuddy.
 alias plistbuddy='/usr/libexec/PlistBuddy'
+
