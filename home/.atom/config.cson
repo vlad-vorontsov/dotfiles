@@ -3,13 +3,6 @@
 # Atom configuration settings
 
 
-'release-notes':
-  'viewedVersion': '0.82.0'
-'welcome':
-  'showOnStartup': false
-'editor':
-  'fontSize': 11
-  'fontFamily': 'menlo'
 'core':
   'themes': [
     'atom-light-ui'
@@ -21,4 +14,10 @@
     '.DS_Store'
   ]
   'projectHome': '/Users/joep/Projects'
-
+'editor':
+  'fontSize': 11
+  'fontFamily': 'menlo'
+'welcome':
+  'showOnStartup': false
+'release-notes':
+  'viewedVersion': '0.86.0'
