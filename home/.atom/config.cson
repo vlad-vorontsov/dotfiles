@@ -21,6 +21,6 @@
   'fontSize': 11
   'fontFamily': 'menlo'
 'release-notes':
-  'viewedVersion': '0.86.0'
+  'viewedVersion': '0.89.0'
 'welcome':
   'showOnStartup': false
