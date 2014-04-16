@@ -4,9 +4,8 @@
 
 
 'core':
-  'themes': [
-    'atom-light-ui'
-    'atom-light-syntax'
+  'disabledPackages': [
+    'metrics'
   ]
   'ignoredNames': [
     '.git'
@@ -14,10 +13,14 @@
     '.DS_Store'
   ]
   'projectHome': '/Users/joep/Projects'
+  'themes': [
+    'atom-light-ui'
+    'atom-light-syntax'
+  ]
 'editor':
   'fontSize': 11
   'fontFamily': 'menlo'
-'welcome':
-  'showOnStartup': false
 'release-notes':
   'viewedVersion': '0.86.0'
+'welcome':
+  'showOnStartup': false
