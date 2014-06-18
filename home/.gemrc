@@ -1,8 +1,6 @@
 # ~/.gemrc
 #
-# gem(1) configuration file.
-
+# gem(1) configuration file
 
 # Don't generate RDoc and RI documentation for gems.
 gem: --no-rdoc --no-ri
-

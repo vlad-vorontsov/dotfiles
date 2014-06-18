@@ -14,11 +14,9 @@
 # high resolution audio files. Downsampled files will be written to the
 # directory OUT in the current working directory.
 
-
 usage() {
   echo "usage: $PROG [-d directory] [-g] [-n]"
 }
-
 
 COUNT=0
 CWD="$(pwd)"
@@ -97,4 +95,3 @@ done < <(find "$DIR" -depth 1 -type f \( -iname "*.aiff" -or -iname "*.aif" -or 
 if [[ $COUNT -eq 0 ]]; then
   echo "${PROG}: No high resolution audio files found"
 fi
-

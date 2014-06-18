@@ -1,11 +1,6 @@
 # ~/.gitconfig
 #
-# git(1) configuration file.
-
-
-[user]
-  name = Joep Loijens
-  email = joep.loijens@gmail.com
+# git(1) configuration file
 
 [alias]
   ci = commit
@@ -21,3 +16,6 @@
 [credential]
   helper = osxkeychain
 
+[user]
+  name = Joep Loijens
+  email = joep.loijens@gmail.com

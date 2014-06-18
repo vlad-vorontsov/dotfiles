@@ -1,7 +1,6 @@
 -- ~/login.sql
 --
--- SQL*Plus user profile file.
-
+-- SQL*Plus user profile file
 
 define _EDITOR = vi
 
@@ -12,4 +11,3 @@ set pause 'Press [return] to continue...'
 set pause on
 
 set exitcommit off
-

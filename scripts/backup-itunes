@@ -6,13 +6,11 @@
 # Assumes that the iTunes library is in its default location and all media
 # files are located in the iTunes media folder.
 #
-# Requires rsync 3.1 because of options used in the `rsync` command.
-
+# Requires rsync 3 because of options used in the `rsync` command.
 
 usage() {
   echo "usage: $PROG [-n] [-v]"
 }
-
 
 PROG=${0##*/}
 RSYNC_OPTIONS=""
@@ -59,7 +57,7 @@ if [[ $# -gt 0 ]]; then
 fi
 
 # Check rsync version.
-[[ $(rsync --version) =~ version\ 3\.1 ]] || { echo "${PROG}: rsync 3.1.0 or later is required"; exit 1; }
+[[ $(rsync --version) =~ version\ 3 ]] || { echo "${PROG}: rsync 3 or later is required"; exit 1; }
 
 # Check if required directories exist.
 [[ -d "$SRC" ]] || { echo "${PROG}: ${SRC}: No such directory"; exit 1; }
@@ -96,4 +94,3 @@ if [[ $EXITCODE -ne 0 ]]; then
 fi
 
 echo "[$(date "+%Y-%m-%d %H:%M:%S")]: End iTunes Backup"
-

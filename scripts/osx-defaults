@@ -7,7 +7,6 @@
 # Thanks to Mathias Bynens' OS X defaults script:
 # - https://github.com/mathiasbynens/dotfiles/blob/master/.osx
 
-
 PROG=${0##*/}
 
 # OS X only...
@@ -18,7 +17,6 @@ fi
 
 # Ask for the administrator password upfront.
 sudo -v
-
 
 # General - UI/UX
 # ----------------------------------------------------------------------------
@@ -45,13 +43,11 @@ if [[ $(sw_vers -productVersion) =~ ^10\.9.*) ]]; then
   sudo launchctl unload -w /System/Library/LaunchDaemons/com.apple.systemstats.daily.plist
 fi
 
-
 # Desktop & Screen Saver
 # ----------------------------------------------------------------------------
 
 # Disable shadows on screen captures (default: not set).
 defaults write com.apple.screencapture disable-shadow -boolean true
-
 
 # Dock
 # ----------------------------------------------------------------------------
@@ -64,7 +60,6 @@ defaults write com.apple.dock minimize-to-application -boolean true
 
 # Set the icon size of Dock items to 48 pixels (default: not set).
 defaults write com.apple.dock tilesize -integer 48
-
 
 # Finder
 # ----------------------------------------------------------------------------
@@ -84,7 +79,6 @@ defaults write com.apple.finder ShowRemovableMediaOnDesktop -boolean true
 # Show status bar.
 defaults write com.apple.finder ShowStatusBar -boolean true
 
-
 # Safari
 # ----------------------------------------------------------------------------
 
@@ -103,7 +97,6 @@ defaults write com.apple.Safari InstallExtensionUpdatesAutomatically -boolean fa
 # Show status bar.
 defaults write com.apple.Safari ShowStatusBar -boolean true
 
-
 # Terminal
 # ----------------------------------------------------------------------------
 
@@ -118,7 +111,6 @@ sleep 1
 defaults write com.apple.terminal "Default Window Settings" -string "Solarized Light"
 defaults write com.apple.terminal "Startup Window Settings" -string "Solarized Light"
 
-
 # Google
 # ----------------------------------------------------------------------------
 
@@ -128,10 +120,8 @@ defaults write com.google.Keystone.Agent checkInterval 0
 # Disable Google Software Update agent.
 launchctl unload -w ~/Library/LaunchAgents/com.google.keystone.agent.plist
 
-
 # Pixelmator
 # ----------------------------------------------------------------------------
 
 # Don't show the Welcome window on launching the application (default: false).
 defaults write com.pixelmatorteam.pixelmator dontShowWelcomeScreen -boolean true
-

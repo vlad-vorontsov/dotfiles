@@ -2,7 +2,6 @@
 #
 # Specifies intentionally untracked files that git(1) should ignore.
 
-
 # OS X generated files.
 .DS_Store
 .Spotlight-V100
@@ -11,4 +10,3 @@ Icon
 
 # Compiled source files.
 *.pyc
-

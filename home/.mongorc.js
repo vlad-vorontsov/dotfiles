@@ -1,4 +1,3 @@
 // ~/.mongorc.js
 //
-// mongo shell start-up file.
-
+// mongo shell start-up file

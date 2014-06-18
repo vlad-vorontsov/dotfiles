@@ -1,6 +1,6 @@
 # ~/.bash_profile
 #
-# Bash startup file for login shells.
+# Bash startup file for login shells
 #
 # From the bash(1) man page:
 #
@@ -18,4 +18,3 @@
 
 
 [[ -r ~/.bashrc ]] && source ~/.bashrc
-

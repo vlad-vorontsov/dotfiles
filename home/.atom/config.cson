@@ -2,7 +2,6 @@
 #
 # Atom configuration settings
 
-
 'core':
   'disabledPackages': [
     'metrics'

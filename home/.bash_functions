@@ -2,7 +2,6 @@
 #
 # ~/.bash_functions
 
-
 # Create a data URI from a file
 function datauri() {
   local mimeType
@@ -37,4 +36,3 @@ unquarantine() {
     xattr -rd "$attribute" "$@"
   done
 }
-

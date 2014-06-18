@@ -1,7 +1,6 @@
 -- ~/.psqlrc
 --
--- psql(1) start-up file.
-
+-- psql(1) start-up file
 
 \pset null '~'
 
@@ -10,4 +9,3 @@
 \set PROMPT1 '(%m)%n@%/%# '
 \set PROMPT2 '> '
 \set PROMPT3 '> '
-
