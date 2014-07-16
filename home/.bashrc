@@ -62,7 +62,7 @@ if [ -f $(xcode-select -p)/usr/share/git-core/git-prompt.sh ]; then
   GIT_PS1_SHOWUNTRACKEDFILES=1
   GIT_PS1_SHOWUPSTREAM=auto
   GIT_PS1_DESCRIBE_STYLE=branch
-  PROMPT_COMMAND="__git_ps1 '${VIRTUAL_ENV:+(${VIRTUAL_ENV##*/})}\u@\h:\w' '\\$ ' ' (%s)'; $PROMPT_COMMAND"
+  PROMPT_COMMAND='__git_ps1 "${VIRTUAL_ENV:+(${VIRTUAL_ENV##*/})}\u@\h:\w" "\\$ " " (%s)"'"; $PROMPT_COMMAND"
 fi
 
 # Git bash completion
