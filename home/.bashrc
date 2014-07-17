@@ -85,8 +85,8 @@ if [[ -n $(command -v brew) ]]; then
   # Oracle SQL*Plus
   if [[ -n $(command -v sqlplus) ]]; then
     export NLS_LANG=AMERICAN_AMERICA.UTF8
-    export SQLPATH=$HOME/local/sqlplus
-    export TNS_ADMIN=/usr/local/etc
+    export SQLPATH=$(brew --prefix)/opt/instant-client/sqlplus/admin:$HOME/local/sqlplus
+    export TNS_ADMIN=$(brew --prefix)/etc
   fi
 fi
 
