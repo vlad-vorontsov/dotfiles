@@ -23,25 +23,23 @@ sudo -v
 
 # Set hostname. Only the user-friendly name (computer name), the local
 # (Bonjour) host name and NetBIOS name get set by the Sharing preference pane.
-sudo scutil --set ComputerName titan
-sudo scutil --set LocalHostName titan
-sudo scutil --set HostName titan
-sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.smb.server NetBIOSName -string "titan"
+sudo scutil --set ComputerName saturn
+sudo scutil --set LocalHostName saturn
+sudo scutil --set HostName saturn
+sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.smb.server NetBIOSName -string "saturn"
 
 # Disable open and close window animations (default: not set).
 defaults write NSGlobalDomain NSAutomaticWindowAnimationsEnabled -boolean false
 
 # Set Sidebar icon size to small.
-defaults write NSGlobalDomain NSTableViewDefaultSizeMode -integer 2
+defaults write NSGlobalDomain NSTableViewDefaultSizeMode -integer 1
 
 # Report computer name, OS X version and IP address when clicking the clock
 # in the Login window (default: not set).
 sudo defaults write /Library/Preferences/com.apple.loginwindow AdminHostInfo HostName
 
-# Disable daily summary of power usage statistics on OS X Mavericks (10.9).
-if [[ $(sw_vers -productVersion) =~ ^10\.9.*) ]]; then
-  sudo launchctl unload -w /System/Library/LaunchDaemons/com.apple.systemstats.daily.plist
-fi
+# Disable daily summary of power usage statistics.
+sudo launchctl unload -w /System/Library/LaunchDaemons/com.apple.systemstats.daily.plist
 
 # Desktop & Screen Saver
 # ----------------------------------------------------------------------------
@@ -84,9 +82,6 @@ defaults write com.apple.finder ShowStatusBar -boolean true
 
 # Disable opening "safe" files automatically after downloading.
 defaults write com.apple.Safari AutoOpenSafeDownloads -boolean false
-
-# Disable thumbnail cache for History and Top Sites (default: not set).
-defaults write com.apple.Safari DebugSnapshotsUpdatePolicy -integer 2
 
 # Set home page to `about:blank`.
 defaults write com.apple.Safari HomePage -string "about:blank"
