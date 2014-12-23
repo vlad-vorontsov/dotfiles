@@ -106,8 +106,8 @@ open "../terminal/Solarized Light.terminal"
 sleep 1
 
 # Make Solarized Light the default terminal profile.
-defaults write com.apple.terminal "Default Window Settings" -string "Solarized Light"
-defaults write com.apple.terminal "Startup Window Settings" -string "Solarized Light"
+defaults write com.apple.Terminal "Default Window Settings" -string "Solarized Light"
+defaults write com.apple.Terminal "Startup Window Settings" -string "Solarized Light"
 
 # Google
 # ----------------------------------------------------------------------------
