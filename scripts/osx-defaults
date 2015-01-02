@@ -15,6 +15,12 @@ if [[ $(uname) != "Darwin" ]]; then
   exit 1
 fi
 
+# OS X Yosemite only...
+if ! [[ $(sw_vers -productVersion) =~ ^10\.1.\..+ ]]; then
+  echo "$PROG script is intended only for OS X versions 10.10.0 and up"
+  exit 1
+fi
+
 # Ask for the administrator password upfront.
 sudo -v
 
