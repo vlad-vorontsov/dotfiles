@@ -31,10 +31,21 @@ source bootstrap
 
 ## Features
 
+### Homebrew Formulae
+
+When setting up a new Mac, you may want to install some
+[Homebrew](http://brew.sh/) formulae (after installing Homebrew first,
+of course) by running the `brew.sh` script.
+
+```bash
+cd ~/.dotfiles/scripts
+./brew.sh
+```
+
 ### OS X Defaults
 
 On a new Mac you may want to set some sane OS X defaults by running the
-`osx-defaults` script. You can find this script in `scripts/`.
+`osx-defaults` script.
 
 ```bash
 cd ~/.dotfiles/scripts
