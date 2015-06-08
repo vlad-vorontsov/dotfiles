@@ -40,6 +40,9 @@ defaults write NSGlobalDomain NSAutomaticWindowAnimationsEnabled -boolean false
 # Set Sidebar icon size to small.
 defaults write NSGlobalDomain NSTableViewDefaultSizeMode -integer 1
 
+# Disable focus ring animation (default: not set).
+defaults write NSGlobalDomain NSUseAnimatedFocusRing -boolean false
+
 # Reduce transparency in OS X.
 defaults write com.apple.universalaccess reduceTransparency -boolean true
 
