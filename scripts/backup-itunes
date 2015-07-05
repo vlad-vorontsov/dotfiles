@@ -16,7 +16,7 @@ PROG=${0##*/}
 RSYNC_OPTIONS=""
 
 # Make sure to set the DST variable to the destination backup directory.
-DST="/Volumes/Vault/Backup/${HOSTNAME}${HOME}/Music/"
+DST="/Volumes/Elements/Backup/${HOSTNAME}${HOME}/Music/"
 SRC="${HOME}/Music/iTunes"
 
 # Parse command line options.
@@ -78,11 +78,15 @@ rsync $RSYNC_OPTIONS \
   --acls \
   --hfs-compression \
   --protect-decmpfs \
+  --protect-args \
   --delete \
   --delete-excluded \
   --exclude ".DS_Store" \
-  --exclude "Cache/" \
-  --prune-empty-dirs \
+  --exclude "iTunes Library.xml" \
+  --exclude "Album Artwork/Cache/" \
+  --exclude "Album Artwork/Editorial/" \
+  --exclude "Album Artwork/Generated/" \
+  --exclude "Album Artwork/Store/" \
   --log-file=${HOME}/Library/Logs/${PROG}.log \
   "$SRC" "$DST"
 
