@@ -15,7 +15,7 @@ fi
 brew update
 
 # Upgrade any already installed formulae
-brew upgrade --all
+brew upgrade
 
 # Remove outdated versions from the cellar
 brew cleanup
