@@ -135,3 +135,9 @@ launchctl unload -w ~/Library/LaunchAgents/com.google.keystone.agent.plist
 
 # Don't show the Welcome window on launching the application (default: false).
 defaults write com.pixelmatorteam.pixelmator dontShowWelcomeScreen -boolean true
+
+# Tweetbot
+# ----------------------------------------------------------------------------
+
+# Bypass the annoyingly slow t.co URL shortener (default: not set).
+defaults write com.tapbots.TweetbotMac OpenURLsDirectly -boolean true
