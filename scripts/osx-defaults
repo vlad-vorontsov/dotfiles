@@ -15,9 +15,9 @@ if [[ $(uname) != "Darwin" ]]; then
   exit 1
 fi
 
-# OS X Yosemite only...
-if ! [[ $(sw_vers -productVersion) =~ ^10\.1.\..+ ]]; then
-  echo "$PROG script is intended only for OS X versions 10.10.0 and up"
+# OS X El Capitan only...
+if ! [[ $(sw_vers -productVersion) =~ ^10\.11\..+ ]]; then
+  echo "$PROG script is intended for OS X versions 10.11.x"
   exit 1
 fi
 
@@ -76,9 +76,6 @@ defaults write com.apple.dock tilesize -integer 48
 
 # New windows show home directory.
 defaults write com.apple.finder NewWindowTargetPath -string "file://${HOME}/"
-
-# Enable text selection in Quick Look (default: not set).
-defaults write com.apple.finder QLEnableTextSelection -boolean true
 
 # Show icons on the desktop for external disks.
 defaults write com.apple.finder ShowExternalHardDrivesOnDesktop -boolean true
