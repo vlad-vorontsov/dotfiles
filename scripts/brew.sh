@@ -39,8 +39,7 @@ brew install graphicsmagick --with-little-cms2 --without-magick-plus-plus
 brew install jhead
 
 # Install Ruby version management tools
-brew install --HEAD rbenv
-brew install ruby-build
+brew install rbenv
 
 # Install some database tools
 brew install joeploijens/tap/mysql
@@ -48,9 +47,6 @@ brew install joeploijens/tap/postgresql
 brew install joeploijens/tap/instant-client
 brew install mongodb
 brew install redis
-
-# Install some extra fun stuff
-brew install spark
 
 # Remove outdated versions from the cellar
 brew cleanup
