@@ -21,6 +21,7 @@
 __version__ = '0.3.3'
 __author__ = 'Simon Kennedy <code@sffjunkie.co.uk>'
 
+ITUNES_12 = 196
 ITUNES_9 = 208
 ITUNES_OLD = 216
 
@@ -92,7 +93,7 @@ class EasyPNG(object):
 
 
 class ITCFile(object):
-    def __init__(self, mode=ITUNES_9, quiet=False):
+    def __init__(self, mode=ITUNES_12, quiet=False):
         self._HANDLER = {
             'itch': self._parse_itch,
             'artw': self._parse_artw,
@@ -277,11 +278,11 @@ class ITCFile(object):
         start = self._rs.tell()
         self.image_offset = struct.unpack('!L', self._rs.read(4))[0]
 
-        # 16 byte preamble for ITUNES_9 & 20 after ITUNES_OLD.
+        # 16 byte preamble for ITUNES_12 and ITUNES_9 & 20 after ITUNES_OLD.
         # The reason for this unclear.
         # ITUNES_OLD also has extra 4 bytes before image data to account for the
         # 8 bytes difference
-        if self.image_offset == ITUNES_9:
+        if self.image_offset == ITUNES_12 or self.image_offset == ITUNES_9:
             self.info_preamble = self._rs.read(16)
         elif self.image_offset == ITUNES_OLD:
             self.info_preamble = self._rs.read(20)
