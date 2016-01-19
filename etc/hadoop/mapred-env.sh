@@ -13,7 +13,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-export JAVA_HOME="$(/usr/libexec/java_home -v 1.6)"
+export JAVA_HOME="$(/usr/libexec/java_home)"
 
 export HADOOP_JOB_HISTORYSERVER_HEAPSIZE=1000
 
