@@ -35,12 +35,14 @@ source bootstrap
 
 When setting up a new Mac, you may want to install some
 [Homebrew](http://brew.sh/) formulae (after installing Homebrew first,
-of course) by running the `brew.sh` script.
+of course) by running the following commands:
 
 ```bash
-cd ~/.dotfiles/scripts
-./brew.sh
+brew tap homebrew/bundle
+brew bundle --global
 ```
+
+This will install all the Homebrew formulae listed in `.Brewfile`.
 
 ### OS X Defaults
 
