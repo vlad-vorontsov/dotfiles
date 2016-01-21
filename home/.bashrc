@@ -75,6 +75,9 @@ if [[ -n $(command -v brew) ]]; then
   export HOMEBREW_TEMP=$TMPDIR
   source $(brew --repo)/Library/Contributions/brew_bash_completion.sh
 
+  # Homebrew Cask
+  export HOMEBREW_CASK_OPTS="--appdir=/Applications --caskroom=$(brew --repo)/Caskroom"
+
   # Ruby version management: rbenv and ruby-build
   if [[ -n $(command -v rbenv) ]]; then
     export RBENV_ROOT=$(brew --prefix)/var/rbenv
