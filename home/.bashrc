@@ -75,6 +75,11 @@ fi
 if [[ -n $(command -v brew) ]]; then
   export HOMEBREW_TEMP=$TMPDIR
 
+  # Homebrew's bash completion
+  if [ -f $(brew --prefix)/etc/bash_completion.d/brew ]; then
+    source $(brew --prefix)/etc/bash_completion.d/brew
+  fi
+
   # Homebrew Cask
   export HOMEBREW_CASK_OPTS="--appdir=/Applications --caskroom=$(brew --repo)/Caskroom"
 
