@@ -27,7 +27,8 @@ PROG=${0##*/}
 
 # Parse command line options.
 OPTIND=1
-while getopts :d:ghn OPT; do
+while getopts :d:ghn OPT
+do
   case $OPT in
     d)
       DIR=${OPTARG%/}
@@ -60,7 +61,8 @@ while getopts :d:ghn OPT; do
 done
 shift $((OPTIND-1))
 
-if [[ $# -gt 0 ]]; then
+if [[ $# -gt 0 ]]
+then
   echo "${PROG}: illegal argument -- $1"
   usage
   exit 1
@@ -76,9 +78,12 @@ command -v sox >/dev/null 2>&1 || { echo "${PROG}: sox: command not found"; exit
 trap 'rm -rf "OUT/${file##*/}"; exit 3' SIGINT
 
 # Only downsample high resolution audio files.
-while IFS= read -r -d '' file; do
-  if [[ $(sox --i -b "$file") -eq 24 ]] && [[ $(sox --i -r "$file") -ge 44100 ]]; then
-    if [[ $COUNT -eq 0 ]]; then
+while IFS= read -r -d '' file
+do
+  if [[ $(sox --i -b "$file") -eq 24 ]] && [[ $(sox --i -r "$file") -ge 44100 ]]
+  then
+    if [[ $COUNT -eq 0 ]]
+    then
       mkdir -p OUT || exit 1
     fi
 
@@ -92,6 +97,7 @@ while IFS= read -r -d '' file; do
   fi
 done < <(find "$DIR" -depth 1 -type f \( -iname "*.aiff" -or -iname "*.aif" -or -iname "*.wav" -or -iname "*.flac" \) -print0)
 
-if [[ $COUNT -eq 0 ]]; then
+if [[ $COUNT -eq 0 ]]
+then
   echo "${PROG}: No high resolution audio files found"
 fi

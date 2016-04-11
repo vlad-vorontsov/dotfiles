@@ -54,7 +54,8 @@ export TREE_COLORS=":no=00:fi=00:di=00;34:ln=00;35:pi=40;33:so=00;32:bd=46;34:cd
 export PS1="\u@\h:\w$ "
 
 # Git prompt
-if [ -f $(xcode-select -p)/usr/share/git-core/git-prompt.sh ]; then
+if [[ -f $(xcode-select -p)/usr/share/git-core/git-prompt.sh ]]
+then
   source $(xcode-select -p)/usr/share/git-core/git-prompt.sh
   GIT_PS1_SHOWDIRTYSTATE=1
   GIT_PS1_SHOWSTASHSTATE=1
@@ -67,16 +68,19 @@ if [ -f $(xcode-select -p)/usr/share/git-core/git-prompt.sh ]; then
 fi
 
 # Git bash completion
-if [ -f $(xcode-select -p)/usr/share/git-core/git-completion.bash ]; then
+if [[ -f $(xcode-select -p)/usr/share/git-core/git-completion.bash ]]
+then
   source $(xcode-select -p)/usr/share/git-core/git-completion.bash
 fi
 
 # Homebrew package manager
-if [[ -n $(command -v brew) ]]; then
+if [[ -n $(command -v brew) ]]
+then
   export HOMEBREW_TEMP=$TMPDIR
 
   # Homebrew's bash completion
-  if [ -f $(brew --prefix)/etc/bash_completion.d/brew ]; then
+  if [[ -f $(brew --prefix)/etc/bash_completion.d/brew ]]
+  then
     source $(brew --prefix)/etc/bash_completion.d/brew
   fi
 
@@ -84,14 +88,16 @@ if [[ -n $(command -v brew) ]]; then
   export HOMEBREW_CASK_OPTS="--appdir=/Applications --caskroom=$(brew --repo)/Caskroom"
 
   # Ruby version management: rbenv and ruby-build
-  if [[ -n $(command -v rbenv) ]]; then
+  if [[ -n $(command -v rbenv) ]]
+  then
     export RBENV_ROOT=$(brew --prefix)/var/rbenv
     export RUBY_CONFIGURE_OPTS="--disable-install-doc"
     eval "$(rbenv init -)"
   fi
 
   # Oracle SQL*Plus
-  if [[ -n $(command -v sqlplus) ]]; then
+  if [[ -n $(command -v sqlplus) ]]
+  then
     export NLS_LANG=AMERICAN_AMERICA.UTF8
     export SQLPATH=$(brew --prefix)/opt/instant-client/sqlplus/admin:$HOME/local/sqlplus
     export TNS_ADMIN=$(brew --prefix)/etc
@@ -102,7 +108,8 @@ fi
 [[ -d $HOME/local/bin ]] && export PATH=$PATH:$HOME/local/bin
 
 # Source Bash files
-for file in $HOME/.{bash_aliases,bash_functions,bashrc.local}; do
+for file in $HOME/.{bash_aliases,bash_functions,bashrc.local}
+do
   [[ -r $file ]] && [[ -f $file ]] && source $file
 done
 unset file

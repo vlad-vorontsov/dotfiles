@@ -8,7 +8,8 @@ function datauri() {
 
   [[ -z $1 ]] && { echo "$FUNCNAME: Missing file name"; return 1; }
 
-  if [ -f "$1" ]; then
+  if [[ -f "$1" ]]
+  then
     mimeType=$(file -b --mime-type "$1")
     if [[ $mimeType == text/* ]]; then
       mimeType="${mimeType};charset=utf-8"
@@ -32,7 +33,8 @@ deletefiles() {
 unquarantine() {
   local attribute
 
-  for attribute in com.apple.metadata:kMDItemDownloadedDate com.apple.metadata:kMDItemWhereFroms com.apple.quarantine; do
+  for attribute in com.apple.metadata:kMDItemDownloadedDate com.apple.metadata:kMDItemWhereFroms com.apple.quarantine
+  do
     xattr -rd "$attribute" "$@"
   done
 }

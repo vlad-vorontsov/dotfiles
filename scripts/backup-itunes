@@ -21,7 +21,8 @@ SRC="${HOME}/Music/iTunes"
 
 # Parse command line options.
 OPTIND=1
-while getopts :nvh OPT; do
+while getopts :nvh OPT
+do
   case $OPT in
     n)
       RSYNC_OPTIONS+="--dry-run "
@@ -50,7 +51,8 @@ while getopts :nvh OPT; do
 done
 shift $((OPTIND-1))
 
-if [[ $# -gt 0 ]]; then
+if [[ $# -gt 0 ]]
+then
   echo "${PROG}: illegal argument -- $1"
   usage
   exit 1
@@ -64,7 +66,8 @@ fi
 [[ -d "$DST" ]] || { echo "${PROG}: ${DST}: No such directory"; exit 1; }
 
 # Ensure that iTunes is not running.
-if [[ "$(osascript -e 'tell application "System Events" to (name of processes) contains "iTunes"')" = "true" ]]; then
+if [[ "$(osascript -e 'tell application "System Events" to (name of processes) contains "iTunes"')" = "true" ]]
+then
   echo "${PROG}: Quit iTunes before making a backup"
   exit 1
 fi
@@ -91,7 +94,8 @@ rsync $RSYNC_OPTIONS \
   "$SRC" "$DST"
 
 EXITCODE=$?
-if [[ $EXITCODE -ne 0 ]]; then
+if [[ $EXITCODE -ne 0 ]]
+then
   echo "[$(date "+%Y-%m-%d %H:%M:%S")]: rsync: Error $EXITCODE"
   echo "[$(date "+%Y-%m-%d %H:%M:%S")]: End iTunes Backup"
   exit $EXITCODE

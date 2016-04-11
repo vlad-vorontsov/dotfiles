@@ -10,13 +10,15 @@
 PROG=${0##*/}
 
 # OS X only...
-if [[ $(uname) != "Darwin" ]]; then
+if [[ $(uname) != "Darwin" ]]
+then
   echo "$PROG script is for OS X only!"
   exit 1
 fi
 
 # OS X El Capitan only...
-if ! [[ $(sw_vers -productVersion) =~ ^10\.11\..+ ]]; then
+if ! [[ $(sw_vers -productVersion) =~ ^10\.11\..+ ]]
+then
   echo "$PROG script is intended for OS X versions 10.11.x"
   exit 1
 fi
