@@ -56,6 +56,9 @@ alias redis.stop='kill $(cat /usr/local/var/run/redis.pid)'
 alias ip='dig @resolver1.opendns.com myip.opendns.com +short'
 alias localip='ipconfig getifaddr en0'
 
+# mitmproxy, an SSL-capable man-in-the-middle HTTP proxy
+alias mitmproxy='source $HOME/local/mitmproxy/bin/activate; mitmproxy; deactivate'
+
 # OS X specific commands
 # ----------------------------------------------------------------------------
 
