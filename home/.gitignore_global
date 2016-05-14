@@ -1,4 +1,4 @@
-# ~/.gitignore
+# ~/.gitignore_global
 #
 # Specifies intentionally untracked files that git(1) should ignore.
 
@@ -7,6 +7,3 @@
 .Spotlight-V100
 .Trashes
 Icon
-
-# Compiled source files.
-*.pyc

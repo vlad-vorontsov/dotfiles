@@ -31,10 +31,10 @@ sudo -v
 
 # Set hostname. Only the user-friendly name (computer name), the local
 # (Bonjour) host name and NetBIOS name get set by the Sharing preference pane.
-sudo scutil --set ComputerName titan
-sudo scutil --set LocalHostName titan
-sudo scutil --set HostName titan
-sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.smb.server NetBIOSName -string "titan"
+sudo scutil --set ComputerName Fuzza
+sudo scutil --set LocalHostName Fuzza
+sudo scutil --set HostName Fuzza
+sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.smb.server NetBIOSName -string "fuzza"
 
 # Disable open and close window animations (default: not set).
 defaults write NSGlobalDomain NSAutomaticWindowAnimationsEnabled -boolean false

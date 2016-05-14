@@ -16,7 +16,7 @@ directory. The `bootstrap` script will prompt you before installing the
 dotfiles. Run the following commands to install:
 
 ```bash
-git clone https://github.com/joeploijens/dotfiles.git ~/.dotfiles
+git clone https://github.com/fuzza/dotfiles.git ~/.dotfiles
 cd ~/.dotfiles
 source bootstrap
 ```
@@ -57,4 +57,3 @@ cd ~/.dotfiles/scripts
 ### Vim Plug-Ins
 
 - [vim-colors-solarized](https://github.com/altercation/vim-colors-solarized)
-
