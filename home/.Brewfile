@@ -24,6 +24,7 @@ cask 'audacity-lame-library'
 cask 'audacity'
 
 # AppStore
+mas 'Xcode', id: 497799835
 mas 'Slack', id: 803453959
 mas 'Pomodoro One', id: 907364780
 mas 'Easy APNs Provider', id: 989622350
