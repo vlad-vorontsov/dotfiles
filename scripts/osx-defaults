@@ -23,40 +23,44 @@ then
   exit 1
 fi
 
-# Ask for the administrator password upfront.
+# Close any open System Preferences panes, to prevent them from overriding
+# settings we’re about to change
+osascript -e 'tell application "System Preferences" to quit'
+
+# Ask for the administrator password upfront
 sudo -v
 
-# General - UI/UX
+# Keep-alive: update existing `sudo` time stamp until `.macos` has finished
+while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
+
+# Security
 # ----------------------------------------------------------------------------
 
-# Set hostname. Only the user-friendly name (computer name), the local
-# (Bonjour) host name and NetBIOS name get set by the Sharing preference pane.
-sudo scutil --set ComputerName Fuzza
-sudo scutil --set LocalHostName Fuzza
-sudo scutil --set HostName Fuzza
-sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.smb.server NetBIOSName -string "fuzza"
+# Disable Gatekeeper
+# Allows installing apps from anywhere
+sudo spctl --master-disable
 
-# Disable open and close window animations (default: not set).
-defaults write NSGlobalDomain NSAutomaticWindowAnimationsEnabled -boolean false
+# Sharing
+# ----------------------------------------------------------------------------
+
+# Set computer name (as done via System Preferences → Sharing)
+sudo scutil --set ComputerName "Fuzza"
+sudo scutil --set HostName "Fuzza"
+sudo scutil --set LocalHostName "Fuzza"
+sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.smb.server NetBIOSName -string "Fuzza"
+
+# General
+# ----------------------------------------------------------------------------
 
 # Set Sidebar icon size to small.
 defaults write NSGlobalDomain NSTableViewDefaultSizeMode -integer 1
 
-# Disable focus ring animation (default: not set).
-defaults write NSGlobalDomain NSUseAnimatedFocusRing -boolean false
-
 # Save new documents to disk (not to iCloud) (default: not set).
 defaults write NSGlobalDomain NSDocumentSaveNewDocumentsToCloud -boolean false
-
-# Reduce transparency in OS X.
-defaults write com.apple.universalaccess reduceTransparency -boolean true
 
 # Report computer name, OS X version and IP address when clicking the clock
 # in the Login window (default: not set).
 sudo defaults write /Library/Preferences/com.apple.loginwindow AdminHostInfo HostName
-
-# Disable daily summary of power usage statistics.
-sudo launchctl unload -w /System/Library/LaunchDaemons/com.apple.systemstats.daily.plist
 
 # Desktop & Screen Saver
 # ----------------------------------------------------------------------------
@@ -68,43 +72,35 @@ defaults write com.apple.screencapture disable-shadow -boolean true
 # ----------------------------------------------------------------------------
 
 # Minimize windows using the "Scale" effect.
-defaults write com.apple.dock mineffect -string "scale"
-
-# Minimize windows into their application icon.
-defaults write com.apple.dock minimize-to-application -boolean true
-
-# Set the icon size of Dock items to 48 pixels (default: not set).
-defaults write com.apple.dock tilesize -integer 48
+defaults write com.apple.dock mineffect scale
 
 # Finder
 # ----------------------------------------------------------------------------
 
-# New windows show home directory.
-defaults write com.apple.finder NewWindowTargetPath -string "file://${HOME}/"
-
-# Show icons on the desktop for external disks.
-defaults write com.apple.finder ShowExternalHardDrivesOnDesktop -boolean true
-
-# Show icons on the desktop for removable media.
-defaults write com.apple.finder ShowRemovableMediaOnDesktop -boolean true
+# Set default Finder location to home folder (~/)
+defaults write com.apple.finder NewWindowTarget -string "PfLo" && \
+defaults write com.apple.finder NewWindowTargetPath -string "file://${HOME}"
 
 # Show status bar.
-defaults write com.apple.finder ShowStatusBar -boolean true
+defaults write com.apple.finder ShowStatusBar -bool true
+
+# Show path bar.
+defaults write com.apple.finder ShowPathbar -bool true
 
 # Safari
 # ----------------------------------------------------------------------------
 
 # Disable opening "safe" files automatically after downloading.
-defaults write com.apple.Safari AutoOpenSafeDownloads -boolean false
+#defaults write com.apple.Safari AutoOpenSafeDownloads -boolean false
 
 # Set home page to `about:blank`.
-defaults write com.apple.Safari HomePage -string "about:blank"
+#defaults write com.apple.Safari HomePage -string "about:blank"
 
 # Do not automatically update extensions.
-defaults write com.apple.Safari InstallExtensionUpdatesAutomatically -boolean false
+#defaults write com.apple.Safari InstallExtensionUpdatesAutomatically -boolean false
 
 # Show status bar.
-defaults write com.apple.Safari ShowStatusBar -boolean true
+#defaults write com.apple.Safari ShowStatusBar -boolean true
 
 # Terminal
 # ----------------------------------------------------------------------------
@@ -117,29 +113,38 @@ open "../terminal/Solarized Light.terminal"
 sleep 1
 
 # Make Solarized Light the default terminal profile.
-defaults write com.apple.Terminal "Default Window Settings" -string "Solarized Light"
-defaults write com.apple.Terminal "Startup Window Settings" -string "Solarized Light"
+defaults write com.apple.Terminal "Default Window Settings" -string "Solarized Dark"
+defaults write com.apple.Terminal "Startup Window Settings" -string "Solarized Dark"
 
-# Google
+# Other
 # ----------------------------------------------------------------------------
 
-# Use the OS X system-native print preview dialog (default: not set).
-defaults write com.google.Chrome DisablePrintPreview -boolean true
+# Use plain text mode for new TextEdit documents
+defaults write com.apple.TextEdit RichText -int 0
 
-# Disable Google Software Update from checking for updates (default: 18000).
-defaults write com.google.Keystone.Agent checkInterval 0
+# Avoid creating .DS_Store files on network volumes
+defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
 
-# Disable Google Software Update agent.
-launchctl unload -w ~/Library/LaunchAgents/com.google.keystone.agent.plist
+# Disable disk image verification
+defaults write com.apple.frameworks.diskimages skip-verify -bool true && \
+defaults write com.apple.frameworks.diskimages skip-verify-locked -bool true && \
+defaults write com.apple.frameworks.diskimages skip-verify-remote -bool true
 
-# Pixelmator
-# ----------------------------------------------------------------------------
+###############################################################################
+# Kill affected applications                                                  #
+###############################################################################
 
-# Don't show the Welcome window on launching the application (default: false).
-defaults write com.pixelmatorteam.pixelmator dontShowWelcomeScreen -boolean true
+for app in "Dock" \
+  "Finder"; do
+#"Terminal" \
 
-# Tweetbot
-# ----------------------------------------------------------------------------
+	killall "${app}" &> /dev/null
+done
 
-# Bypass the annoyingly slow t.co URL shortener (default: not set).
-defaults write com.tapbots.TweetbotMac OpenURLsDirectly -boolean true
+# for app in "Activity Monitor" "Address Book" "Calendar" "Contacts" "cfprefsd" \
+# 	"Dock" "Finder" "Google Chrome" "Google Chrome Canary" "Mail" "Messages" \
+# 	"Opera" "Photos" "Safari" "SizeUp" "Spectacle" "SystemUIServer" "Terminal" \
+# 	"Transmission" "Tweetbot" "Twitter" "iCal"; do
+# 	killall "${app}" &> /dev/null
+# done
+echo "Done. Note that some of these changes require a logout/restart to take effect."
