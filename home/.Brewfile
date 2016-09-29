@@ -9,3 +9,5 @@ brew 'mogenerator'
 # Cask
 cask 'Atom'
 cask 'pusher'
+cask 'transmission'
+cask 'transmission-remote-gui'
