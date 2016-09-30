@@ -87,21 +87,6 @@ defaults write com.apple.finder ShowStatusBar -bool true
 # Show path bar.
 defaults write com.apple.finder ShowPathbar -bool true
 
-# Safari
-# ----------------------------------------------------------------------------
-
-# Disable opening "safe" files automatically after downloading.
-#defaults write com.apple.Safari AutoOpenSafeDownloads -boolean false
-
-# Set home page to `about:blank`.
-#defaults write com.apple.Safari HomePage -string "about:blank"
-
-# Do not automatically update extensions.
-#defaults write com.apple.Safari InstallExtensionUpdatesAutomatically -boolean false
-
-# Show status bar.
-#defaults write com.apple.Safari ShowStatusBar -boolean true
-
 # Terminal
 # ----------------------------------------------------------------------------
 
@@ -134,17 +119,9 @@ defaults write com.apple.frameworks.diskimages skip-verify-remote -bool true
 # Kill affected applications                                                  #
 ###############################################################################
 
-for app in "Dock" \
+for app in "Dock" "Terminal" \
   "Finder"; do
-#"Terminal" \
-
 	killall "${app}" &> /dev/null
 done
 
-# for app in "Activity Monitor" "Address Book" "Calendar" "Contacts" "cfprefsd" \
-# 	"Dock" "Finder" "Google Chrome" "Google Chrome Canary" "Mail" "Messages" \
-# 	"Opera" "Photos" "Safari" "SizeUp" "Spectacle" "SystemUIServer" "Terminal" \
-# 	"Transmission" "Tweetbot" "Twitter" "iCal"; do
-# 	killall "${app}" &> /dev/null
-# done
 echo "Done. Note that some of these changes require a logout/restart to take effect."
