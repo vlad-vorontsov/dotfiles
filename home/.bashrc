@@ -69,6 +69,9 @@ fi
 # Append ~/local/bin to PATH
 [[ -d $HOME/local/bin ]] && export PATH=$PATH:$HOME/local/bin
 
+# Rbenv
+eval "$(rbenv init -)"
+
 # Source Bash files
 for file in $HOME/.{bash_aliases,bashrc.local}
 do

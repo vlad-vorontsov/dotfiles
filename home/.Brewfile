@@ -6,6 +6,7 @@ tap 'homebrew/dupes'
 brew 'mas'
 brew 'mogenerator'
 brew 'carthage'
+brew 'rbenv'
 
 # Cask
 cask 'atom'
