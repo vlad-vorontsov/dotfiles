@@ -9,6 +9,7 @@ brew 'carthage'
 brew 'rbenv'
 
 # Cask
+cask 'appcode'
 cask 'atom'
 cask 'skype'
 cask 'wwdc'
