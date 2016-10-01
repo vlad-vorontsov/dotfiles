@@ -118,6 +118,9 @@ defaults write com.apple.frameworks.diskimages skip-verify-remote -bool true
 # Disable annoying "are you sure you want to open it" messages
 defaults write com.apple.LaunchServices LSQuarantine -bool NO
 
+# Show battery level in percents in menu bar
+defaults write com.apple.menuextra.battery ShowPercent -string "YES"
+
 # XCode
 # ----------------------------------------------------------------------------
 defaults write com.apple.dt.Xcode ShowBuildOperationDuration YES
