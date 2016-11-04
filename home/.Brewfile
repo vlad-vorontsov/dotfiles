@@ -16,6 +16,9 @@ cask 'wwdc'
 cask 'zeplin'
 cask 'anki'
 cask 'sourcetree'
+cask 'real-vnc'
+cask 'zoomus'
+cask 'flux'
 
 # Torrents
 cask 'transmission'
